@@ -70,6 +70,10 @@ $ composer require inpsyde/disable-comments
 
 The team at [Inpsyde](https://inpsyde.com) is engineering the Web since 2006.
 
+## Credits
+
+Originally born as a fork of https://github.com/bueltge/remove-comments-absolutely
+
 
 ## License
 
