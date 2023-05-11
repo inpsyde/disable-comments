@@ -2,6 +2,10 @@
 
 A WordPress plugin that completely ditches comments as a WordPress feature.
 
+[![PHP Quality Assurance](https://github.com/inpsyde/disable-comments/actions/workflows/php-qa.yml/badge.svg)](https://github.com/inpsyde/disable-comments/actions/workflows/php-qa.yml)
+
+---
+
 
 ## Features
 
