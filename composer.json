@@ -1,0 +1,51 @@
+{
+    "name": "inpsyde/disable-comments",
+    "description": "Entirely ditches comments as a WordPress feature.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Inpsyde GmbH",
+            "email": "hello@inpsyde.com",
+            "homepage": "https://inpsyde.com/",
+            "role": "Company"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://raw.githubusercontent.com/inpsyde/wp-stubs/main",
+            "only": [
+                "inpsyde/wp-stubs-versions"
+            ]
+        }
+    ],
+    "require": {
+        "php": ">= 8.0"
+    },
+    "require-dev": {
+        "inpsyde/php-coding-standards": "^1",
+        "vimeo/psalm": "^5.10.0",
+        "inpsyde/wp-stubs-versions": "dev-latest"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "composer/*": true,
+            "inpsyde/*": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "scripts": {
+        "cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+        "psalm": "@php ./vendor/vimeo/psalm/psalm --no-suggestions --find-unused-psalm-suppress --no-diff --no-cache --no-file-cache",
+        "qa": ["@cs", "@psalm"]
+    }
+}

@@ -1,0 +1,11 @@
+composer.phar
+composer.lock
+/vendor/
+
+/phpcs.xml
+/phpunit.xml
+
+*.log
+.env
+.DS_Store
+.idea/
