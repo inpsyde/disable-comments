@@ -66,7 +66,7 @@ $ composer require inpsyde/disable-comments
 
 ## Crafted by Inpsyde
 
-The team at Inpsyde has been engineering the Web since 2006.
+The team at [Inpsyde](https://inpsyde.com) is engineering the Web since 2006.	
 
 ## Credits
 
