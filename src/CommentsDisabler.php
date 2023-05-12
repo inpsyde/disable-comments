@@ -101,7 +101,7 @@ final class CommentsDisabler
         $addFilter('the_posts', 'closeCommentsForQueries', 2);
         $addFilter('wp_insert_post_data', 'forceCommentsClosedOnSave', 2);
         $addFilter('rest_endpoints', 'removeFromRest');
-        $addFilter('comments_template', 'commentsTemplate', PHP_INT_MAX);
+        $addFilter('comments_template', 'commentsTemplate');
         $addFilter('wp_headers', 'removePingbackHeader');
         $addFilter('xmlrpc_methods', 'replaceXmlrpcMethods');
         $addFilter('rewrite_rules_array', 'filterRewriteRules');
