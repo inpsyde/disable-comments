@@ -57,7 +57,7 @@ The plugin has no production dependencies. When installed for development via Co
 
 ## Installation
 
-The best way to use this package is:
+The best way to install this package is with Composer:
 
 ```bash
 $ composer require inpsyde/disable-comments
