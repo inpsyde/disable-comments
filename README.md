@@ -49,8 +49,7 @@ offending templates/template parts.
 - PHP 8.0+
 - WP 6.0+
 
-The plugin has no production dependencies.
-When installed for development via Composer, the package requires:
+The plugin has no production dependencies. When installed for development via Composer, the package requires:
 
 * [inpsyde/php-coding-standards](https://github.com/inpsyde/php-coding-standards/blob/master/LICENSE)
 * [inpsyde/wp-stubs](https://github.com/inpsyde/wp-stubs/blob/main/LICENSE)
@@ -66,7 +65,7 @@ $ composer require inpsyde/disable-comments
 
 ## Crafted by Inpsyde
 
-The team at [Inpsyde](https://inpsyde.com) is engineering the Web since 2006.	
+The team at [Inpsyde](https://inpsyde.com) is engineering the Web since 2006.
 
 ## Credits
 
@@ -80,5 +79,5 @@ This software is released under the ["GNU General Public License v2.0 or later"]
 
 ## Contributing
 
-Bug reports and contributions are welcome, but please don't ask to add features or configurations.
-For less "radical" approaches to the topic, several other options are available.
+Bug reports and contributions are welcome, but please don't ask to add features or configurations. For less "radical"
+approaches to the topic, several other options are available.
