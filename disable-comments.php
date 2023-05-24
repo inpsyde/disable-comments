@@ -22,7 +22,7 @@
  * @wordpress-plugin
  * Plugin Name: Inpsyde Disable Comments
  * Description: Entirely ditches comments as a WordPress feature.
- * Version: 1.0.0
+ * Version: 1.0.1
  * License: GPLv2+
  * Requires at least: 6.0
  * Requires PHP: 8.0
