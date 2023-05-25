@@ -106,11 +106,11 @@ final class CommentsDisabler
         $addFilter('xmlrpc_methods', 'replaceXmlrpcMethods');
         $addFilter('rewrite_rules_array', 'filterRewriteRules');
         $addFilter('wp_count_comments', 'filterCountComments');
+        $addFilter('comments_pre_query', 'shortCircuitCommentQuery', 2);
         $addFilter('allowed_block_types_all', 'disableBlocks');
 
         add_filter('comments_open', '__return_false', PHP_INT_MAX);
         add_filter('pings_open', '__return_false', PHP_INT_MAX);
-        add_filter('comments_pre_query', '__return_empty_array', PHP_INT_MAX);
         add_filter('feed_links_show_comments_feed', '__return_false', PHP_INT_MAX);
         add_filter('feed_links_extra_show_post_comments_feed', '__return_false', PHP_INT_MAX);
         add_filter('post_comments_feed_link', '__return_empty_string', PHP_INT_MAX);
@@ -570,6 +570,24 @@ final class CommentsDisabler
             'all' => 0,
             'moderated' => 0,
         ];
+    }
+
+    /**
+     * @param mixed $commentData
+     * @param mixed $commentQuery
+     * @return mixed
+     */
+    public function shortCircuitCommentQuery(mixed $commentData, mixed $commentQuery): mixed
+    {
+        if (!($commentQuery instanceof \WP_Comment_Query)) {
+            return $commentData;
+        }
+        $queryVars = $commentQuery->query_vars;
+        if (is_array($queryVars) && !empty($queryVars['count'])) {
+            return 0;
+        }
+
+        return [];
     }
 
     /**
