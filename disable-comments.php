@@ -27,6 +27,9 @@
  * Requires at least: 6.0
  * Requires PHP: 8.0
  * Update URI: false
+ * Plugin URI: https://github.com/inpsyde/disable-comments
+ * GitHub Plugin URI: https://github.com/inpsyde/disable-comments
+ * Primary Branch: main
  */
 
 declare(strict_types=1);
