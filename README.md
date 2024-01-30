@@ -34,6 +34,12 @@ Among other things:
 - Removes comment-related editor blocks and the "Discussion" editor sidebar panel
 - Removes comment-related REST API endpoints
 
+---
+> [!WARNING]  
+> The plugin uses the [`allowed_block_types_all`](https://developer.wordpress.org/reference/hooks/allowed_block_types_all/) filter to disable comment-related blocks.
+> When that filter runs, **Javascript-only registered blocks are** not recognized and **all removed by activating this plugin**.
+---
+
 ## A note about themes
 
 A theme might hardcode comments-related output even if comments are disabled.
