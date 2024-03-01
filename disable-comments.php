@@ -25,8 +25,11 @@
  * Version: 1.0.2
  * License: GPLv2+
  * Requires at least: 6.0
- * Requires PHP: 8.0
+ * Requires PHP: 7.4
  * Update URI: false
+ * Plugin URI: https://github.com/inpsyde/disable-comments
+ * GitHub Plugin URI: https://github.com/inpsyde/disable-comments
+ * Primary Branch: main
  */
 
 declare(strict_types=1);
