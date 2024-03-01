@@ -3,8 +3,6 @@
 /**
  * This file is part of the "inpsyde-disable-comments" package.
  *
- * Copyright (C) 2023 Inpsyde GmbH
- *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -22,7 +20,7 @@
  * @wordpress-plugin
  * Plugin Name: Inpsyde Disable Comments
  * Description: Entirely ditches comments as a WordPress feature.
- * Version: 1.0.2
+ * Version: 1.0.3
  * License: GPLv2+
  * Requires at least: 6.0
  * Requires PHP: 7.4
