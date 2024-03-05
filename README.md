@@ -12,7 +12,7 @@ A WordPress plugin that completely disables comments as a WordPress feature.
 * [A note about themes](#a-note-about-themes)
 * [Requirements](#requirements)
 * [Installation](#installation)
-* [Crafted by Inpsyde](#crafted-by-inpsyde)
+* [Crafted by Syde](#crafted-by-syde)
 * [Credits](#credits)
 * [License](#license)
 * [Contributing](#contributing)
@@ -69,9 +69,9 @@ The best way to install this package is with Composer:
 $ composer require inpsyde/disable-comments
 ```
 
-## Crafted by Inpsyde
+## Crafted by Syde
 
-The team at [Inpsyde](https://inpsyde.com) is engineering the Web since 2006.
+The team at [Syde](https://syde.com) is engineering the Web since 2006.
 
 ## Credits
 
@@ -79,9 +79,7 @@ Originally born as a fork of https://github.com/bueltge/remove-comments-absolute
 
 ## License
 
-Copyright (c) 2023, Inpsyde GmbH
-
-This software is released under the ["GNU General Public License v2.0 or later"](LICENSE) license.
+This repository is a free software, and is released under the terms of the GNU General Public License version 2 or (at your option) any later version. See [LICENSE](./LICENSE) for complete license.
 
 ## Contributing
 
