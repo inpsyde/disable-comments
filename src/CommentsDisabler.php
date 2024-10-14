@@ -27,6 +27,11 @@ namespace Inpsyde;
 final class CommentsDisabler
 {
     /**
+     * @var int
+     */
+    public const PRIORITY = PHP_INT_MAX - 10;
+
+    /**
      * @var list<non-empty-string>
      */
     private const COMMENT_SCREENS = [
@@ -72,14 +77,14 @@ final class CommentsDisabler
              * @psalm-suppress MissingClosureParamType
              * @psalm-suppress MissingClosureReturnType
              */
-            add_action($action, fn(...$args) => $this->{$method}(...$args), $priority);
+            add_action($action, fn (...$args) => $this->{$method}(...$args), $priority);
         };
         $addFilter = function (string $filter, string $method, int $args = 1): void {
             /**
              * @psalm-suppress MissingClosureParamType
              * @psalm-suppress MissingClosureReturnType
              */
-            add_filter($filter, fn(...$args) => $this->{$method}(...$args), PHP_INT_MAX, $args);
+            add_filter($filter, fn (...$args) => $this->{$method}(...$args), self::PRIORITY, $args);
         };
 
         $addAction('registered_post_type', 'removePostTypeSupport');
@@ -96,7 +101,7 @@ final class CommentsDisabler
         $addAction('personal_options', 'removeKeyboardShortcutsOptionFromProfile');
         $addAction('admin_print_footer_scripts', 'removeDiscussionEditorPanel');
         $addAction('template_redirect', 'redirectCommentFeed');
-        $addAction('comment_form_comments_closed', 'removeCommentsClosedActions', PHP_INT_MIN);
+        $addAction('comment_form_comments_closed', 'removeCommentsClosedActions', self::PRIORITY);
 
         $addFilter('the_posts', 'closeCommentsForQueries', 2);
         $addFilter('wp_insert_post_data', 'forceCommentsClosedOnSave', 2);
@@ -109,16 +114,16 @@ final class CommentsDisabler
         $addFilter('comments_pre_query', 'shortCircuitCommentQuery', 2);
         $addFilter('allowed_block_types_all', 'disableBlocks');
 
-        add_filter('comments_open', '__return_false', PHP_INT_MAX);
-        add_filter('pings_open', '__return_false', PHP_INT_MAX);
-        add_filter('feed_links_show_comments_feed', '__return_false', PHP_INT_MAX);
-        add_filter('feed_links_extra_show_post_comments_feed', '__return_false', PHP_INT_MAX);
-        add_filter('post_comments_feed_link', '__return_empty_string', PHP_INT_MAX);
-        add_filter('get_comments_number', '__return_zero', PHP_INT_MAX);
-        add_filter('get_comments_link', '__return_empty_string', PHP_INT_MAX);
-        add_filter('respond_link', '__return_empty_string', PHP_INT_MAX);
-        add_filter('comments_rewrite_rules', '__return_empty_array', PHP_INT_MAX);
-        add_filter('notify_post_author', '__return_false', PHP_INT_MAX);
+        add_filter('comments_open', '__return_false', self::PRIORITY);
+        add_filter('pings_open', '__return_false', self::PRIORITY);
+        add_filter('feed_links_show_comments_feed', '__return_false', self::PRIORITY);
+        add_filter('feed_links_extra_show_post_comments_feed', '__return_false', self::PRIORITY);
+        add_filter('post_comments_feed_link', '__return_empty_string', self::PRIORITY);
+        add_filter('get_comments_number', '__return_zero', self::PRIORITY);
+        add_filter('get_comments_link', '__return_empty_string', self::PRIORITY);
+        add_filter('respond_link', '__return_empty_string', self::PRIORITY);
+        add_filter('comments_rewrite_rules', '__return_empty_array', self::PRIORITY);
+        add_filter('notify_post_author', '__return_false', self::PRIORITY);
     }
 
     /**
@@ -136,7 +141,7 @@ final class CommentsDisabler
                 $wpScripts->remove('comment-reply');
                 $wpScripts->dequeue('comment-reply');
             },
-            PHP_INT_MIN
+            self::PRIORITY
         );
     }
 
@@ -295,7 +300,7 @@ final class CommentsDisabler
      */
     private function filterOptionsAndMetaboxes(): void
     {
-        $closed = static fn(): string => 'closed';
+        $closed = static fn (): string => 'closed';
 
         add_filter('pre_option_comments_notify', '__return_zero');
         add_filter('default_pingback_flag', '__return_zero');
@@ -365,7 +370,7 @@ final class CommentsDisabler
         $adminBar->remove_node('comments');
 
         if (is_scalar($GLOBALS['blog_id'] ?? null)) {
-            $adminBar->remove_node(sprintf('blog-%s-c', (string)$GLOBALS['blog_id']));
+            $adminBar->remove_node(sprintf('blog-%s-c', (string) $GLOBALS['blog_id']));
         }
 
         if (!is_multisite()) {
@@ -385,7 +390,7 @@ final class CommentsDisabler
         }
         foreach ($blogs as $blog) {
             if (is_object($blog) && is_scalar($blog->userblog_id ?? null)) {
-                $adminBar->remove_node(sprintf('blog-%s-c', (string)$blog->userblog_id));
+                $adminBar->remove_node(sprintf('blog-%s-c', (string) $blog->userblog_id));
             }
         }
     }
@@ -433,7 +438,7 @@ final class CommentsDisabler
 
         $filtered = [];
         foreach ($headers as $name => $value) {
-            if (strtolower((string)$name) !== 'x-pingback') {
+            if (strtolower((string) $name) !== 'x-pingback') {
                 $filtered[$name] = $value;
             }
         }
@@ -539,14 +544,14 @@ final class CommentsDisabler
         }
 
         foreach ($rules as $key => $value) {
-            if (str_contains((string)$key, '|commentsrss2')) {
+            if (str_contains((string) $key, '|commentsrss2')) {
                 unset($rules[$key]);
-                $rules[str_replace('|commentsrss2', '', (string)$key)] = $value;
+                $rules[str_replace('|commentsrss2', '', (string) $key)] = $value;
             }
         }
 
         foreach ($rules as $key => $value) {
-            if (str_contains((string)$key, 'comment-page-')) {
+            if (str_contains((string) $key, 'comment-page-')) {
                 unset($rules[$key]);
             }
         }
@@ -561,7 +566,7 @@ final class CommentsDisabler
      */
     private function filterCountComments(): object
     {
-        return (object)[
+        return (object) [
             'approved' => 0,
             'spam' => 0,
             'trash' => 0,
@@ -609,7 +614,7 @@ final class CommentsDisabler
             if ($enabled && !in_array($blockName, $enabled, true)) {
                 continue;
             }
-            if (preg_match('~^core/.*?comment.*?~i', (string)$blockName) !== 1) {
+            if (preg_match('~^core/.*?comment.*?~i', (string) $blockName) !== 1) {
                 $filtered[] = $blockName;
             }
         }

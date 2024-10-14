@@ -26,7 +26,7 @@
         "php": ">= 8.0"
     },
     "require-dev": {
-        "inpsyde/php-coding-standards": "^1",
+        "inpsyde/php-coding-standards": "^2.0@dev",
         "vimeo/psalm": "^5.10.0",
         "inpsyde/wp-stubs-versions": "dev-latest"
     },
