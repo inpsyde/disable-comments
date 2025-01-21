@@ -289,9 +289,6 @@ final class CommentsDisabler
 
         remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
         foreach (get_post_types() as $postType) {
-            if (!is_string($postType)) {
-                continue;
-            }
             remove_meta_box('commentstatusdiv', $postType, 'normal');
             remove_meta_box('commentsdiv', $postType, 'normal');
             remove_meta_box('trackbacksdiv', $postType, 'normal');
