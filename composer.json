@@ -5,9 +5,9 @@
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "Inpsyde GmbH",
-            "email": "hello@inpsyde.com",
-            "homepage": "https://inpsyde.com/",
+            "name": "Syde GmbH",
+            "homepage": "https://syde.com/",
+            "email": "hello@syde.com",
             "role": "Company"
         }
     ],
@@ -46,6 +46,9 @@
     "scripts": {
         "cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
         "psalm": "@php ./vendor/vimeo/psalm/psalm --no-suggestions --find-unused-psalm-suppress --no-diff --no-cache --no-file-cache",
-        "qa": ["@cs", "@psalm"]
+        "qa": [
+            "@cs",
+            "@psalm"
+        ]
     }
 }

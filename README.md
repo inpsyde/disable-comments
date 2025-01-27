@@ -14,7 +14,7 @@ A WordPress plugin that completely disables comments as a WordPress feature.
 * [Installation](#installation)
 * [Crafted by Syde](#crafted-by-syde)
 * [Credits](#credits)
-* [License](#license)
+* [Copyright and License](#copyright-and-license)
 * [Contributing](#contributing)
 
 ## Features
@@ -77,9 +77,9 @@ The team at [Syde](https://syde.com) is engineering the Web since 2006.
 
 Originally born as a fork of https://github.com/bueltge/remove-comments-absolutely.
 
-## License
+## Copyright and License
 
-This repository is a free software, and is released under the terms of the GNU General Public License version 2 or (at your option) any later version. See [LICENSE](./LICENSE) for complete license.
+This package is [free software](https://www.gnu.org/philosophy/free-sw.en.html) distributed under the terms of the GNU General Public License version 2 or (at your option) any later version. For the full license, see [LICENSE](./LICENSE).
 
 ## Contributing
 
